@@ -7,17 +7,49 @@ const {
 } = require('./identify');
 
 const tokenize = (input) => {
+  const tokens = [];
+  let cursor = 0;
 
-const tokens=[];
-let cursor=0;
+  while (cursor < input.length) {
+    const character = input[cursor];
 
-while(cursor<input.length){
+    if (isParenthesis(character)) {
+      tokens.push({
+        type: 'Parenthesis',
+        value: character,
+      });
+      cursor++;
+      continue;
+    }
 
+    if (isWhitespace(character)) {
+      cursor++;
+      continue;
+    }
 
-  cursor++;
-}
+    if (isNumber(character)) {
+      let number = character;
+      while (isNumber(input[++cursor])) {
+        number += input[cursor];
+      }
+
+      tokens.push({
+        type: 'Number',
+        value: +number,
+      });
+      continue;
+    }
+
+    if (isLetter(character)) {
+      tokens.push({
+        type: 'Name',
+        value: character,
+      });
+      cursor++;
+      continue;
+    }
+  }
   return tokens;
-
 };
 
 module.exports = { tokenize };
