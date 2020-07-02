@@ -4,7 +4,7 @@
 `yarn add --dev jest`
 
 OR
-
+    
 `npm install --save-dev jest`
 
 
