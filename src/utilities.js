@@ -1,3 +1,4 @@
+
 const tap = require('lodash/tap');
 
 const pipe = (...funcs) => value =>
