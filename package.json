@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "keywords": [],
-  "author": "Steve Kinney <hello@stevekinney.net> (https://stevekinney.net)",
+  "author": "Yash Munjal",
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.4.5",
