@@ -6,7 +6,7 @@ const { parseAndEvaluate } = require('./parse-and-evaluate');
 
 const askQuestion=()=>{
   const questions = [
-    {name:'COMMAND',type:'input',,message:chalk.blue('>')}
+    {name:'COMMAND',type:'input',message:chalk.blue('>')}
   ];
 
   return prompt(questions)
@@ -17,12 +17,13 @@ const repl = async () => {
     const {COMMAND}=answers;
 
     if(COMMAND.trim){
-      console.log(chalk.yellow(parseAndEvaluate));
+      console.log(chalk.yellow(parseAndEvaluate(COMMAND)));
     }
   } catch (error) {
       console.error(error);
   }
 
+    repl();
 };
 
 if (require.main === module) {
