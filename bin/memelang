@@ -12,11 +12,15 @@ if (!command) {
 }
 
 if (command.toLowerCase() === 'run') {
-  fs.readFile(args[0], 'utf-8', (error, file) => {
-    if (error) {
-      console.error(error);
-    }
-    const result = parseAndEvaluate(file);
-    console.log(result);
-  });
+  if (!(args[0].substring(args[0].length, args[0].length - 6) === '.memel')) {
+    throw new Error('File type not supported');
+  } else {
+    fs.readFile(args[0], 'utf-8', (error, file) => {
+      if (error) {
+        console.error(error);
+      }
+      const result = parseAndEvaluate(file);
+      console.log(result);
+    });
+  }
 }
