@@ -1,6 +1,6 @@
 const { traverse } = require('./traverse');
 
-const transform = node => {};
+const transform = node => {return node};
 
 const specialForms = {};
 

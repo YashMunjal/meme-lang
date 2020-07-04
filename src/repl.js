@@ -3,12 +3,32 @@ const chalk = require('chalk');
 
 const { parseAndEvaluate } = require('./parse-and-evaluate');
 
-const repl = async () => {};
+
+const askQuestion=()=>{
+  const questions = [
+    {name:'COMMAND',type:'input',,message:chalk.blue('>')}
+  ];
+
+  return prompt(questions)
+};
+const repl = async () => {
+  try {
+    const answers= await askQuestion();
+    const {COMMAND}=answers;
+
+    if(COMMAND.trim){
+      console.log(chalk.yellow(parseAndEvaluate));
+    }
+  } catch (error) {
+      console.error(error);
+  }
+
+};
 
 if (require.main === module) {
   console.log(
     chalk.red(
-      `Welcome to the ${chalk.bgYellow('Dropbear')} Programming Language`,
+      `Welcome to the ${chalk.bgYellow('MemeLang')} Programming Language`,
     ),
   );
   repl();
