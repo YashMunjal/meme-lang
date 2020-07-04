@@ -14,6 +14,9 @@ const environment = {
   divide,
   modulo,
   log,
+  max(...args){
+    return Math.max(...args);
+  },
   pi: Math.PI,
 };
 
