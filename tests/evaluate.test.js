@@ -18,14 +18,14 @@ describe(evaluate, () => {
       type: 'CallExpression',
       name: 'add',
       arguments: [
-        { type: 'NumericLiteral', value: 2 },
+        { type: 'NumericLiteral', value: 7 },
         { type: 'NumericLiteral', value: 3 },
       ],
     };
 
     const result = evaluate(ast);
 
-    expect(result).toBe(5);
+    expect(result).toBe(10);
   });
 
   it('should be able to evaluate a nested expression', () => {
